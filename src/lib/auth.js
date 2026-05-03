@@ -4,7 +4,7 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 import dns from "dns";
 dns.setDefaultResultOrder("ipv4first");
-console.log(process.env.MONGODB_URI)
+
 const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db("tiles-gallery");
 
@@ -18,6 +18,13 @@ export const auth = betterAuth({
     emailAndPassword: { 
         enabled: true 
     },
+    socialProviders: {
+        google: {
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        },
+    },
+
     user: {
         changeEmail: {
             enabled: true
