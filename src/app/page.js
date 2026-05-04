@@ -45,7 +45,7 @@ export default function HomePage() {
             <p className="py-6 text-lg font-light opacity-90">
               Explore our premium collection of tiles to transform your space into a masterpiece.
             </p>
-            <Link href="/all-tiles" className="btn btn-primary btn-wide rounded-full text-white font-bold text-lg hover:scale-105 transition-transform">
+            <Link href="/all-tiles" className="btn btn-primary btn-wide rounded-full text-white font-bold text-lg hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all">
               Browse Now
             </Link>
           </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
             <div className="h-2 w-20 bg-primary mt-2"></div>
           </div>
           
-          <Link href="/all-tiles" className="btn btn-outline btn-primary rounded-xl px-8">
+          <Link href="/all-tiles" className="btn btn-outline btn-primary rounded-xl px-8 hover:scale-105 transition-all">
             View All Tiles
           </Link>
         </div>
@@ -97,12 +97,15 @@ export default function HomePage() {
                 </figure>
                 <div className="card-body p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h2 className="card-title text-md font-bold uppercase truncate flex-1">{tile.title}</h2>
+                    <h2 className="card-title text-md font-bold uppercase truncate flex-1 group-hover:text-primary transition-colors">
+                      {tile.title}
+                    </h2>
                     <span className="badge badge-ghost text-xs uppercase">{tile.category || 'Premium'}</span>
                   </div>
                   <p className="text-primary font-black text-2xl mb-4">${tile.price}</p>
                   <div className="card-actions">
-                    <div className="btn btn-primary btn-sm btn-block rounded-lg text-white">
+
+                    <div className="btn btn-primary btn-sm btn-block rounded-lg text-white border-none hover:bg-primary/90 hover:brightness-110 transition-all">
                       View Details
                     </div>
                   </div>
