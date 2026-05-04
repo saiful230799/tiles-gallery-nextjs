@@ -27,6 +27,20 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-base-100">
+      <style jsx>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-custom-marquee {
+          display: inline-block;
+          white-space: nowrap;
+          animation: marquee 30s linear infinite;
+        }
+        .marquee-wrapper:hover .animate-custom-marquee {
+          animation-play-state: paused;
+        }
+      `}</style>
 
       <section 
         className="hero min-h-[75vh] relative flex items-center justify-center"
@@ -52,14 +66,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="bg-primary py-4 overflow-hidden whitespace-nowrap border-y border-white/10">
-        <div className="inline-block animate-marquee text-white font-bold uppercase tracking-widest text-sm">
+      <div className="marquee-wrapper bg-primary py-4 overflow-hidden whitespace-nowrap border-y border-white/10 flex cursor-default">
+        <div className="animate-custom-marquee text-white font-bold uppercase tracking-widest text-sm">
           New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
           New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
-          New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community...
+          New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
+        </div>
+ 
+        <div className="animate-custom-marquee text-white font-bold uppercase tracking-widest text-sm" aria-hidden="true">
+          New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
+          New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
+          New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
         </div>
       </div>
-
       <section className="container mx-auto py-20 px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div className="text-left">
@@ -104,7 +123,6 @@ export default function HomePage() {
                   </div>
                   <p className="text-primary font-black text-2xl mb-4">${tile.price}</p>
                   <div className="card-actions">
-
                     <div className="btn btn-primary btn-sm btn-block rounded-lg text-white border-none hover:bg-primary/90 hover:brightness-110 transition-all">
                       View Details
                     </div>
