@@ -10,14 +10,11 @@ export default function HomePage() {
   useEffect(() => {
     fetch("/api/tiles") 
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch tiles");
-        }
+        if (!res.ok) throw new Error("Failed to fetch tiles");
         return res.json();
       })
       .then((data) => {
         if (Array.isArray(data)) {
-          
           setFeaturedTiles(data.slice(0, 4));
         }
         setLoading(false);
@@ -58,9 +55,11 @@ export default function HomePage() {
       <div className="bg-primary py-4 overflow-hidden whitespace-nowrap border-y border-white/10">
         <div className="inline-block animate-marquee text-white font-bold uppercase tracking-widest text-sm">
           New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
+          New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community... &nbsp;&nbsp;
           New Arrivals: Marble Royal | Weekly Feature: Modern Geometric Patterns | Join the Community...
         </div>
       </div>
+
       <section className="container mx-auto py-20 px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div className="text-left">
@@ -82,7 +81,11 @@ export default function HomePage() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredTiles.map((tile) => (
-              <div key={tile._id} className="card bg-white border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-500 rounded-[2rem] overflow-hidden group">
+              <Link 
+                key={tile._id} 
+                href={`/all-tiles/${tile._id}`} 
+                className="card bg-white border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-500 rounded-[2rem] overflow-hidden group cursor-pointer"
+              >
                 <figure className="h-52 relative m-2 overflow-hidden rounded-[1.5rem]">
                   <Image
                     src={tile.image}
@@ -99,15 +102,12 @@ export default function HomePage() {
                   </div>
                   <p className="text-primary font-black text-2xl mb-4">${tile.price}</p>
                   <div className="card-actions">
-                    <Link 
-                      href={`/all-tiles/${tile._id}`} 
-                      className="btn btn-primary btn-sm btn-block rounded-lg text-white"
-                    >
+                    <div className="btn btn-primary btn-sm btn-block rounded-lg text-white">
                       View Details
-                    </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
