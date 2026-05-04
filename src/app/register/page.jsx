@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
-import { FcGoogle } from "react-icons/fc"; // Google আইকনের জন্য
+import { FcGoogle } from "react-icons/fc"; 
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -15,7 +15,6 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  // ইমেইল দিয়ে রেজিস্টার
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -40,7 +39,7 @@ export default function RegisterPage() {
     );
   };
 
-  // Google দিয়ে রেজিস্টার
+
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
       provider: "google",

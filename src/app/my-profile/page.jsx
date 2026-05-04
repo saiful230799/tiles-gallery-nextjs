@@ -90,9 +90,7 @@ const MyProfilePage = () => {
                         >
                             Edit Profile
                         </button>
-                        <button className="btn btn-outline px-10 rounded-xl normal-case font-bold">
-                            Account Settings
-                        </button>
+                        
                     </div>
                 </div>
             </div>
