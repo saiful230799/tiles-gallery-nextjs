@@ -50,7 +50,6 @@ export default function AllTilesPage() {
   return (
     <div className="container mx-auto py-12 px-6">
       
- 
       <div className="mb-10 text-center md:text-center items-center">
         <h2 className="text-4xl font-black text-gray-900 tracking-tight uppercase">
           Our <span className="text-primary">Products</span>
@@ -117,7 +116,8 @@ export default function AllTilesPage() {
                 <div className="text-3xl font-black text-primary">
                   ${tile.price}
                 </div>
-                <button className="btn btn-primary btn-md rounded-2xl w-full gap-2 text-white shadow-md border-none">
+
+                <button className="btn btn-primary btn-md rounded-2xl w-full gap-2 text-white shadow-md border-none hover:bg-primary/90 hover:brightness-110 active:scale-95 transition-all duration-200">
                   <FiEye size={18} /> View Details
                 </button>
               </div>
